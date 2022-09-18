@@ -4,6 +4,5 @@ export default async (req, ctx) => {
   const redis = Redis.fromEnv();
   const links = await redis.hgetall('links');
   const res = ctx.json(links);
-  res.headers.append('Allow-Access-Control-Origin', '*');
   return res;
 };

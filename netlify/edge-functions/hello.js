@@ -5,8 +5,7 @@ export default async (_req, ctx) => {
   const links = await redis.hgetall('links');
   return ctx.json(links, {
     headers: {
-      'Access-Control-Allow-Origin':
-        'https://upstash-edge-functions.netlify.app/',
+      'Access-Control-Allow-Origin': '*',
     },
   });
 };

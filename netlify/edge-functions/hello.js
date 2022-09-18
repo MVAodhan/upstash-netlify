@@ -1,7 +1,9 @@
 import { Redis } from 'https://deno.land/x/upstash_redis@v1.13.1/mod.ts';
 
-export default async (req, context) => {
+export default async (req, ctx) => {
   const redis = Redis.fromEnv();
   const links = await redis.hgetall('links');
-  return new Response(JSON.stringify(links));
+  const res = ctx.json(links);
+  res.headers.append('Allow-Access-Control-Origin', '*');
+  return res;
 };

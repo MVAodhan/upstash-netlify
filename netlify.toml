@@ -5,7 +5,13 @@
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "*"
+    Access-Control-Allow-Methods= "*"
 
 [[edge_functions]]
 path = "/test"
 function = "hello"
+
+[[edge_functions]]
+path = "/submit"
+function = "submit"
